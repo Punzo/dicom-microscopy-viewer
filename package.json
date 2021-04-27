@@ -43,6 +43,7 @@
   "dependencies": {
     "dicomweb-client": "^0.5.2",
     "mathjs": "^7.1.0",
-    "ol": "^6.3.1"
+    "ol": "^6.3.1",
+    "fast-png": "^5.0.4"
   }
 }

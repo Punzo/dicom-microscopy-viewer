@@ -1,3 +1,5 @@
+
+import * as fastpng from "fast-png";
 /** Offscreen render for coloring tile frames
  *
  * @class
@@ -204,7 +206,26 @@ class RenderingEngine {
       frameData.bitsAllocated
     );
 
-    return renderedCanvas.toDataURL('image/png');
+    //return renderedCanvas.toDataURL('image/png');
+
+    const pixels = new Uint8Array(this.gl.drawingBufferWidth * this.gl.drawingBufferHeight * 4);
+    this.gl.readPixels(
+      0, 
+      0, 
+      this.gl.drawingBufferWidth, 
+      this.gl.drawingBufferHeight, 
+      this.gl.RGBA, 
+      this.gl.UNSIGNED_BYTE, 
+      pixels
+      );
+      
+    const data = fastpng.encode({
+      width: this.gl.drawingBufferWidth,
+      height: this.gl.drawingBufferHeight,
+      data: pixels,
+    });
+
+    return new Blob([data], { type: "image/png" });
 
     // NOTE: ToBlob is async and provides smaller images,
     // but here the renderingEngine is synch/sequential (one object, one gl context, etc..).

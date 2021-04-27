@@ -269,7 +269,8 @@ class _Channel {
             // NOTE: we store the pixelData array in img, so we can apply again colorImageFrame
             //       at the change of any blending parameter (opacity, color, clipping).
             img.pixelData = pixelData;
-            img.src = renderingEngine.colorImageFrame(frameData);
+            const blob = renderingEngine.colorImageFrame(frameData);
+            img.src = window.URL.createObjectURL(blob);
           }
         );
       } else {
@@ -604,8 +605,9 @@ class _Channel {
             opacity,
             columns,
             rows
-          }; 
-          img.src = this.renderingEngine.colorImageFrame(frameData);
+          };
+          const blob = this.renderingEngine.colorImageFrame(frameData);
+          img.src = window.URL.createObjectURL(blob);
 
           mapRerender = true;
         }

@@ -16,12 +16,13 @@
     <noscript>
       You need to enable JavaScript to run this app.
     </noscript>
+<!-- enable for testing locally
     <script src="https://unpkg.com/dicomweb-client"></script>
-    <script src="https://unpkg.com/dicom-microscopy-viewer"></script>
+    <script src="https://unpkg.com/dicom-microscopy-viewer"></script>!-->
 
-    <!-- enable for testing locally
+    
     <script src="../../node_modules/dicomweb-client/build/dicomweb-client.js"></script>
-    <script src="../../build/dicom-microscopy-viewer.js"></script>!-->
+    <script src="../../build/dicom-microscopy-viewer.js"></script>
     <script>
 
     var colorPicker;
@@ -71,7 +72,7 @@
       }
     }
 
-    const url = 'http://34.68.90.36/';
+    const url = 'http://localhost:8080/dcm4chee-arc/aets/DCM4CHEE/rs';
     const client = new DICOMwebClient.api.DICOMwebClient({url});
     const studyInstanceUID = '1.3.6.1.4.1.5962.99.1.2103930081.1286074986.1595536829665.3.0';
     const seriesInstanceUIDOne = '1.3.6.1.4.1.5962.1.1.0.0.0.1595262375.18986.1';
