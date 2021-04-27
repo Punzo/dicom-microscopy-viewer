@@ -783,8 +783,8 @@ class VolumeImageViewer {
       if (!newZoom) {
         newZoom = this.getZoomForResolution(animateSpecs.resolution);
       }
-      if (newZoom) {      
-        if (Math.round(newZoom) !== Math.round(currZoom)) {
+      if (newZoom) {
+        if (Math.abs(newZoom - currZoom) > 1e-6) {
           currZoom = newZoom;
           if (viewer[_channels] && viewer[_channels].length !== 0) {
             // For each channel check if any tiles at the new zoom 

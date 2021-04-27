@@ -568,7 +568,7 @@ class _Channel {
       // at the same zoom level and extent of the view. The other tiles will be updated
       // interactively when zooming or panning the view.
       let render = false;
-      let update = Math.abs(z - zoomLevel) < 0.55;
+      let update = Math.abs(z - zoomLevel) < 0.75;
       if (tilesCoordRanges) {
         update = update &&
           (y >= tilesCoordRanges[1].min && y <= tilesCoordRanges[1].max) && 
