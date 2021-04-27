@@ -207,7 +207,10 @@ class RenderingEngine {
     return renderedCanvas.toDataURL('image/png');
 
     // NOTE: ToBlob is async and provides smaller images,
-    // but here teh renderingEngine is sequential (one object, one gl context, etc..)
+    // but here the renderingEngine is synch/sequential (one object, one gl context, etc..).
+    // When the OffscreenCanvas will be fully supported, 
+    // it can be used for a full web-workers async approach
+    // https://developer.mozilla.org/en-US/docs/Web/API/OffscreenCanvas
   }
 
   /** Builds coloring shader
